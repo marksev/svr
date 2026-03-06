@@ -4,7 +4,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 import 'game_controller.dart';
-import 'sprites.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({super.key});
@@ -114,14 +113,24 @@ class _GamePageState extends State<GamePage> {
                 top: 0,
                 width: skyscraper.width,
                 height: skyscraper.topHeight,
-                child: const SkyscraperSprite(),
+                child: Image.asset(
+                  'assets/images/skyscraper.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) =>
+                      Container(color: const Color(0xFFA4ECF0)),
+                ),
               ),
               Positioned(
                 left: skyscraper.x,
                 top: skyscraper.bottomY(playableHeight),
                 width: skyscraper.width,
                 height: skyscraper.bottomHeight(playableHeight),
-                child: const SkyscraperSprite(),
+                child: Image.asset(
+                  'assets/images/skyscraper.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) =>
+                      Container(color: const Color(0xFFA4ECF0)),
+                ),
               ),
             ],
             Positioned(
@@ -129,7 +138,12 @@ class _GamePageState extends State<GamePage> {
               top: _controller.airplane.y,
               width: _controller.airplane.width,
               height: _controller.airplane.height,
-              child: const AirplaneSprite(),
+              child: Image.asset(
+                'assets/images/airplane.png',
+                fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) =>
+                    const Icon(Icons.airplanemode_active, color: Colors.red),
+              ),
             ),
             Positioned(
               left: 0,

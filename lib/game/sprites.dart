@@ -5,10 +5,8 @@ class AirplaneSprite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/airplane.png',
-      fit: BoxFit.contain,
-      errorBuilder: (_, __, ___) => const CustomPaint(painter: _AirplanePainter()),
+    return CustomPaint(
+      painter: _AirplanePainter(),
     );
   }
 }
@@ -18,17 +16,13 @@ class SkyscraperSprite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/skyscraper.png',
-      fit: BoxFit.cover,
-      errorBuilder: (_, __, ___) => const CustomPaint(painter: _SkyscraperPainter()),
+    return CustomPaint(
+      painter: _SkyscraperPainter(),
     );
   }
 }
 
 class _AirplanePainter extends CustomPainter {
-  const _AirplanePainter();
-
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
@@ -103,11 +97,7 @@ class _AirplanePainter extends CustomPainter {
       ..close();
     canvas.drawPath(tail, body);
 
-    canvas.drawCircle(
-      Offset(w * 0.88, h * 0.50),
-      h * 0.10,
-      Paint()..color = const Color(0xFFDA2E22),
-    );
+    canvas.drawCircle(Offset(w * 0.88, h * 0.50), h * 0.10, Paint()..color = const Color(0xFFDA2E22));
     canvas.drawOval(
       Rect.fromCenter(
         center: Offset(w * 0.94, h * 0.50),
@@ -131,8 +121,6 @@ class _AirplanePainter extends CustomPainter {
 }
 
 class _SkyscraperPainter extends CustomPainter {
-  const _SkyscraperPainter();
-
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
@@ -168,14 +156,8 @@ class _SkyscraperPainter extends CustomPainter {
       ..close();
     canvas.drawPath(roof2, roofB);
 
-    canvas.drawRect(
-      Rect.fromLTWH(w * 0.38, h * 0.01, w * 0.24, h * 0.03),
-      Paint()..color = const Color(0xFFF8CC50),
-    );
-    canvas.drawRect(
-      Rect.fromLTWH(w * 0.49, 0, w * 0.02, h * 0.02),
-      Paint()..color = const Color(0xFF2D6EAF),
-    );
+    canvas.drawRect(Rect.fromLTWH(w * 0.38, h * 0.01, w * 0.24, h * 0.03), Paint()..color = const Color(0xFFF8CC50));
+    canvas.drawRect(Rect.fromLTWH(w * 0.49, 0, w * 0.02, h * 0.02), Paint()..color = const Color(0xFF2D6EAF));
 
     final windowPaint = Paint()..color = const Color(0xFFB6ECFF);
     for (var row = 0; row < 9; row++) {
@@ -186,14 +168,8 @@ class _SkyscraperPainter extends CustomPainter {
       }
     }
 
-    canvas.drawRect(
-      Rect.fromLTWH(w * 0.18, h * 0.92, w * 0.64, h * 0.03),
-      Paint()..color = const Color(0xFFD9E6EE),
-    );
-    canvas.drawRect(
-      Rect.fromLTWH(w * 0.14, h * 0.95, w * 0.72, h * 0.03),
-      Paint()..color = const Color(0xFFECAA39),
-    );
+    canvas.drawRect(Rect.fromLTWH(w * 0.18, h * 0.92, w * 0.64, h * 0.03), Paint()..color = const Color(0xFFD9E6EE));
+    canvas.drawRect(Rect.fromLTWH(w * 0.14, h * 0.95, w * 0.72, h * 0.03), Paint()..color = const Color(0xFFECAA39));
 
     final outline = Paint()
       ..color = const Color(0xFF16528C)
